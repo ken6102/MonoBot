@@ -1,0 +1,6 @@
+deep-translator
+openai==0.28.1
+pynacl
+google-api-python-client
+youtube_dl
+pytube
