@@ -555,7 +555,7 @@ async def check_birthday():
   await client.wait_until_ready(
   )
   channel = client.get_channel(
-    696738982763167746
+    'hidden'
   )
   while True:
     with open("birthdays.txt", "r") as f:
@@ -986,7 +986,6 @@ async def admin_commands(ctx):
   embed.add_field(name="!admin", value="Displays this menu", inline=False)
   embed.add_field(name="!commandlock", value="Locks/unlocks all commands (can be toggled)", inline=False)
   embed.add_field(name="!repeat (text)", value="Makes the bot repeat anything you say", inline=False)
-  embed.add_field(name='!testembed (entry1); (entry2); ...', value="Tests potential embed formats", inline=False)
   embed.add_field(name="!addquestion", value="Allows you to add a question to trivia", inline=False)
   embed.add_field(name="!resettrivia", value="Refreshes trivia (lets previously asked questions be asked again)", inline=False)
   embed.add_field(name="!stopgame", value="More powerful version that stops games (excluding trivia) even when you're not a participant", inline=False)
@@ -1025,44 +1024,6 @@ async def repeat_message(ctx, *, message=None):
 
   else:
     await ctx.send(message)
-
-#######################################################################
-
-@client.command(name='testembed')
-async def testembed(ctx, *, arg=None):
-    if await commandlockcheck(ctx):
-        return
-    
-    if ctx.author.id not in op_ids:
-        await ctx.send("You don't have permission to use this command.")
-        return
-
-    if not arg:
-        await ctx.send("Please provide field names and values separated by semicolons.")
-        return
-
-    try:
-        args = [entry.strip() for entry in arg.split(';') if entry.strip()]
-
-        if len(args) % 2 != 0:
-            await ctx.send("Please provide pairs of field names and field values separated by semicolons.")
-            return
-
-        embed = discord.Embed(
-            title='Test',
-            description='Embed test',
-            color=discord.Color.blue()
-        )
-
-        for i in range(0, len(args), 2):
-            field_name = args[i]
-            field_value = args[i + 1]
-            embed.add_field(name=field_name, value=field_value, inline=False)
-
-        await ctx.send(embed=embed)
-
-    except Exception as e:
-        await ctx.send(f"An error occurred: {e}")
         
 #######################################################################
 
