@@ -1,6 +1,0 @@
-**October 2024:**
-- Removed various unused commands
-- Reworked translator
-> Now uses deep translator instead of google translate, for better accuracy
-- Music now uses soundcloud instead of youtube
-> However, it can now play longer audio files as it streams instead of downloads audio
