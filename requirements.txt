@@ -1,6 +1,14 @@
 deep-translator
-openai==0.28.1
+openai
 pynacl
 google-api-python-client
 youtube_dl
 pytube
+googlesearch-python
+asyncpraw
+pillow
+selenium
+webdriver_manager
+qrcode
+numpy
+python-dotenv
